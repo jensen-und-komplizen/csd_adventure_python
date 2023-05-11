@@ -20,3 +20,5 @@ In order to be able to work in this virtual environment you have to activate it:
 Now your terminal should look like this:
 
 `(venv) $ _`
+
+Please ensure that every time you are going to install something via *PIP* that you activated your environment beforehand. This will keep all the additional installed packages in your virtual environment.
