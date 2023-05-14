@@ -15,10 +15,7 @@ class Loo(AbstractRoom):
         return "You wake up on the loo. You have no idea where or who you are."
 
     def get_detailed_description(self):
-        detailed_description = """You see a pretty dirty door, with some nasty jokes on it. There are three pieces of toilet paper on the ground. Next to you are a coin and a few magazines.
-        <br/>
-        In your pocket you find a card that says you are a pathetic scrum developer, PSD"""
-        return detailed_description
+        return "You see a pretty dirty door, with some nasty jokes on it. There are three pieces of toilet paper on the ground. Next to you are a coin and a few magazines." + "<br/>" + "In your pocket you find a card that says you are a pathetic scrum developer, PSD"
 
     def handle_command(self, command):
         match command.lower():
@@ -37,7 +34,7 @@ class Loo(AbstractRoom):
             case "go through door":
                 return
             case _:
-                return "you wake up on the Loo" + "\n" + super().handleCommand(command)
+                return "you wake up on the Loo" + "\n" + super().handle_command(command)
 
     def get_help(self):
         return super().get_help() + "try to 'look around', 'look at magazines' (better get your gloves), 'look at toilet paper' or just 'use door to washroom' to escape the smell."
