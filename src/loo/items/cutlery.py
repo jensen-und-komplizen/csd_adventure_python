@@ -1,0 +1,5 @@
+class Cutlery:
+    the_total_amount_of_knives_that_are_in_the_kitchen_disregarding_their_state = 0
+
+    def __init__(self, the_total_amount_of_knives_that_are_in_the_kitchen_disregarding_their_state):
+        self.the_total_amount_of_knives_that_are_in_the_kitchen_disregarding_their_state = the_total_amount_of_knives_that_are_in_the_kitchen_disregarding_their_state
