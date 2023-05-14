@@ -1,1 +1,5 @@
 venv
+.DS_Store
+.idea
+build
+__pycache__
