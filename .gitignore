@@ -3,3 +3,4 @@ venv
 .idea
 build
 __pycache__
+src/csdadventure.egg-info
