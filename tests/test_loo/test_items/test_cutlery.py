@@ -9,6 +9,6 @@ class TestCutlery(unittest.TestCase):
         cutlery = Cutlery(0)
         self.assertIsNotNone(cutlery)
 
-    def test_knives_calculation(self):
+    def test_cutlery_knives_calculation(self):
         cutlery = Cutlery(2)
         self.assertEqual(cutlery.the_total_amount_of_knives_that_are_in_the_kitchen_disregarding_their_state, 2)
