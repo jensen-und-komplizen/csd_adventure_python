@@ -1,9 +1,9 @@
 from src.loo.rooms.loo import Loo
 from src.loo.rooms.wash_room import WashRoom
+from src.loo.rooms.hallway import Hallway
 
 
 class Adventure:
-
     counter = None
     current_room = None
     loo = None
@@ -13,12 +13,14 @@ class Adventure:
     def __init__(self):
         self.loo = Loo()
         self.washroom = WashRoom()
+        self.hallway = Hallway()
         self.current_room = self.loo
         self.counter = 0
         self.last_response = ""
 
     def tell(self, command):
         response = ""
+        print(command)
         match command.lower():
             case "commit suicide":
                 self.loo.reset_counter()
@@ -41,6 +43,13 @@ class Adventure:
                 self.loo.reset_counter()
                 self.current_room = self.loo
                 response = "You are on the loo again. Still smelly."
+            case "use door to hallway":
+                if self.current_room == self.washroom:
+
+                    self.current_room = self.hallway
+                    response = "You are on the hallway, a dark one without light."
+                else:
+                    response = "There is no door to the hallway"
             case "help":
                 response = self.current_room.get_help()
                 if response is None or len(response) <= 0:
