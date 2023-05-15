@@ -9,7 +9,8 @@ description = "This is the loo adventure based on an idea by Falk Kühnel"
 readme = "README.md"
 requires-python = ">=3.7"
 dependencies = [
-  flask
+  "flask >= 2.3.2",
+  "python-dotenv >= 1.0.0"
 ]
 [project.optional-dependencies]
 dev = [
