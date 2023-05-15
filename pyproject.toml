@@ -1,0 +1,25 @@
+[project]
+name = "csdadventure"
+version = "0.0.1"
+authors = [
+  { name="Björn Jensen", email="bjoern@jensen.coach"},
+  { name="Falk Kühnel", email="falk@kuehnel.eu"},
+]
+description = "This is the loo adventure based on an idea by Falk Kühnel"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+  flask
+]
+[project.optional-dependencies]
+dev = [
+]
+
+[project.urls]
+"Homepage" = "https://github.com/jensen-und-komplizen/csd_adventure_python"
+
+[tool.pytest.ini_options]
+#addopts = "-ra -v --cov --cov-report term-missing"
+minversion = 7.0
+pythonpath = ["src"]
+testpaths = ["tests"]
