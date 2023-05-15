@@ -8,17 +8,10 @@ In order to be able to follow this tutorial you need to have to install the foll
 - Python 3.x 
 - PIP
 
-## Step 01 - Create and set up the working environment
-Create the directory you are going to use to create your webapplication. In order to keep your system clean it is a good idea to create a virtual environment in this directory: 
+## Step 01 - Local Setup Instructions
 
-`$ python3 -m venv venv`
-
-In order to be able to work in this virtual environment you have to activate it:
-
-`$ source venv/bin/activate`
-
-Now your terminal should look like this:
-
-`(venv) $ _`
-
-Please ensure that every time you are going to install something via *PIP* that you activated your environment beforehand. This will keep all the additional installed packages in your virtual environment.
+1. Install Python version 3.11
+2. Run `python3 -m venv venv` to create the virtualenv
+3. Activate venv: `source venv/bin/activate`
+4. Install needed dependencies (venv activated) by running: `pip install -r requirements.txt`
+5. Run local flask development server: `flask run` (if you get any "used port"-error, you can change the port by setting the `--port=XXXX` argument like i.e. `flask run --port=5001`)
