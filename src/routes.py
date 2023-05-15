@@ -1,6 +1,9 @@
 from flask import render_template
+from flask import request
 from src import app
 from src.loo.adventure import Adventure
+
+adventure = Adventure()
 
 @app.route('/')
 @app.route('/index')
@@ -22,3 +25,7 @@ def index():
 def game():
     adventure = Adventure()
     return render_template('game.html', adventure=adventure)
+
+@app.route('/command')
+def command():
+    return adventure.tell(request.args.get('command',''));
