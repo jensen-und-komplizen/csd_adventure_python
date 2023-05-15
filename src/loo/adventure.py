@@ -2,7 +2,7 @@ from src.loo.rooms.loo import Loo
 from src.loo.rooms.wash_room import WashRoom
 
 
-class Adventure():
+class Adventure:
 
     counter = None
     current_room = None

@@ -1,0 +1,25 @@
+body {
+    background: black;
+    color: forestgreen;
+    font-family: "Space Mono", monospace;
+    padding: 30px;
+}
+
+input {
+    background: #333333;
+    caret-color: forestgreen;
+    caret-shape: underscore;
+    border: none;
+    color: forestgreen;
+    font-family: "Space Mono", monospace;
+    font-size: 1.2em;
+    margin: 1em 0;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
