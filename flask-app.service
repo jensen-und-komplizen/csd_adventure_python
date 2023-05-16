@@ -1,0 +1,12 @@
+[Unit]
+Description=Flask App
+After=network.target
+
+[Service]
+User=csd
+WorkingDirectory=/home/csd/csd_adventure_python
+ExecStart=/home/csd/csd_adventure_python/venv/bin/activate bash entry.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

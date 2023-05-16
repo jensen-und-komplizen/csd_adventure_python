@@ -15,3 +15,6 @@ In order to be able to follow this tutorial you need to have to install the foll
 3. Activate venv: `source venv/bin/activate`
 4. Install needed dependencies (venv activated) by running: `pip install -r requirements.txt`
 5. Run local flask development server: `flask run` (if you get any "used port"-error, you can change the port by setting the `--port=XXXX` argument like i.e. `flask run --port=5001`) or use the entryfile like "bash entry.sh"
+
+## Server Setup
+run sudo bash service.sh to make the service persistent as a service.
