@@ -45,9 +45,8 @@ class Adventure:
                 response = "You are on the loo again. Still smelly."
             case "use door to hallway":
                 if self.current_room == self.washroom:
-
                     self.current_room = self.hallway
-                    response = "You are on the hallway, a dark one without light."
+                    response = self.current_room.get_description()
                 else:
                     response = "There is no door to the hallway"
             case "help":
