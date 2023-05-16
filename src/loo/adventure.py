@@ -1,7 +1,7 @@
 from src.loo.rooms.loo import Loo
 from src.loo.rooms.wash_room import WashRoom
 from src.loo.rooms.hallway import Hallway
-import random
+import copy
 
 
 class Adventure:
@@ -24,18 +24,21 @@ class Adventure:
             "What to call a dog thats also a magician? - a labracadabrador ;)",
             "Why is the e function not invited to the party? - because you can't integrate it ;)"
         ]
+        self.jokes_temp = copy.deepcopy(self.jokes)
 
     def tell(self, command):
         response = ""
-        print(command)
+        # keep your print statements to yourself.
         match command.lower():
             case "commit suicide":
                 self.loo.reset_counter()
                 self.current_room = self.loo
                 response = self.current_room.get_description()
-            case "read a joke":
+            case "read a joke" | "read joke":
                 if self.current_room == self.loo:
-                    response = random.choice(self.jokes)
+                    if len(self.jokes_temp) < 1:
+                        return "You've read them all ;)"
+                    return self.jokes_temp.pop(0)
                 else:
                     response = "There is no joke in this room."
             case "look around":

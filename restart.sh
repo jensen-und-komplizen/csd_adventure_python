@@ -1,0 +1,1 @@
+pm2 restart csd_adventure.py --interpreter ./venv/bin/python
