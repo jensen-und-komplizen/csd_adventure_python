@@ -1,22 +1,42 @@
 from src.loo.rooms.abstract_room import AbstractRoom
+from src.loo.items.item import Item
 
 
 class WashRoom(AbstractRoom):
 
+    def __init__(self):
+        self.dod = Item(name="DoD", 
+                        message="hands washed?" + "\n" + "paper towels in bin?" + "\n" + "toilet flushed?")
+        
+        self.blockchain = Item(name="blockchain", 
+                        message="Nice, now I have a blockhain in my pocket. Maybe I will become a Crpyto millionaire?!")
+        
+        self.coin = Item(name="coin", 
+                        message="Eww, that wasn't a coin?!")
+        
+        self.door = Item(name="door", 
+                        message="")
+                        
     def get_description(self):
         return "You enter a room that looks like a wash room."
 
     def get_detailed_description(self):
-        return "You see a coin on the floor. " + "<br/>" + "You also see an incredibly nasty sink with an undefinable substance in it. Ew!" + "<br/>" + "You notice a <mark>DoD</mark> on the door." + "</br>" + "On the other side of the room you see two doors, one <mark>door</mark> to the hallway and another one to the loo." + "</br>" + "Oh, and there's a blockchain in the corner. Interesting.."
+        return f"""You see a {self.coin} on the floor. \n
+        You also see an incredibly nasty sink with an undefinable substance in it. Ew! \n
+        You notice a {self.dod} on the door. \n
+        On the other side of the room you see two doors, one {self.door} to the hallway and another one to the loo. \n
+        Oh, and there's a {self.blockchain} in the corner. Interesting.."""
 
     def handle_command(self, command):
         match command.lower():
             case "read dod":
-                return "hands washed?" + "</br>" + "paper towels in bin?" + "</br>" + "toilet flushed?"
+                return self.dod.message
             case "grab blockchain":
-                return "Nice, now I have a blockhain in my pocket. Maybe I will become a Crpyto millionaire?!"
+                return self.blockchain.message
+            case "grab coin":
+                return self.coin.message
             case _:
                 return super().handle_command(command)
             
     def get_help(self):
-        return super().get_help() + "try to 'look around', 'read DoD', or 'use door to hallway', or 'use door to loo'. Might help."
+        return super().get_help() + "try to 'look around', 'read DoD', or 'use door to hallway', or 'use door to loo', or 'grab coin', or 'grab blockchain'. Might help."

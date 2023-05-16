@@ -1,4 +1,5 @@
 from src.loo.rooms.abstract_room import AbstractRoom
+from src.loo.items.item import Item
 
 
 class Loo(AbstractRoom):
@@ -7,6 +8,16 @@ class Loo(AbstractRoom):
 
     def __init__(self):
         self.__toilet_paper_count = 0
+        self.door = Item(name="door", 
+                        message="")
+        self.jokes = Item(name="jokes",
+                          message="")
+        self.toilet_paper = Item(name="toilet paper", 
+                                 message="")
+        self.magazines = Item(name="magazines", 
+                                 message="You see a very much used Micky Mouse magazine, a very old and unusable playboy and what seems to be a scrum guide 2009 in mint condition.")
+        self.coin = Item(name="coin", 
+                        message="Eww, that wasn't a coin?!")
 
     def reset_counter(self):
         self.__toilet_paper_count = 0
@@ -15,12 +26,13 @@ class Loo(AbstractRoom):
         return "You wake up on the loo. You have no idea where or who you are."
 
     def get_detailed_description(self):
-        return "You see a pretty dirty <mark>door</mark>, with some nasty jokes on it. There are three pieces of <mark>toilet paper</mark> on the ground. Next to you are a coin and a few <mark>magazines</mark>." + "<br/>" + "In your pocket you find a card that says you are a pathetic scrum developer, PSD"
+        return f"""You see a pretty dirty {self.door}, with some nasty {self.jokes} on it. There are three pieces of {self.toilet_paper} on the ground. Next to you are a {self.coin} and a few {self.magazines}. \n
+        In your pocket you find a card that says you are a pathetic scrum developer, PSD"""
 
     def handle_command(self, command):
         match command.lower():
             case "look at magazines":
-                return "You see a very much used Micky Mouse magazine, a very old and unusable playboy and what seems to be a scrum guide 2009 in mint condition."
+                return self.magazines.message
             case "look at toilet paper":
                 self.__toilet_paper_count += 1
                 match self.__toilet_paper_count:
@@ -33,8 +45,10 @@ class Loo(AbstractRoom):
                         return "On the last piece is written: \"Developers: We have too many meetings.\" I remember. I need to find my Scrum team to help them get out of here."
             case "go through door":
                 return
+            case "grab coin":
+                return self.coin.message
             case _:
                 return "you wake up on the Loo" + "\n" + super().handle_command(command)
 
     def get_help(self):
-        return super().get_help() + "try to 'look around', 'look at magazines' (better get your gloves), 'look at toilet paper', 'read a joke' or just 'use door to washroom' to escape the smell."
+        return super().get_help() + "try to 'look around', 'look at magazines' (better get your gloves), 'grab coin', 'look at toilet paper', 'read a joke' or just 'use door to washroom' to escape the smell."
