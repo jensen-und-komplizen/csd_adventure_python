@@ -33,7 +33,7 @@ class Adventure:
                 self.loo.reset_counter()
                 self.current_room = self.loo
                 response = self.current_room.get_description()
-            case "read a joke":
+            case "read a joke" | "read joke":
                 if self.current_room == self.loo:
                     response = random.choice(self.jokes)
                 else:

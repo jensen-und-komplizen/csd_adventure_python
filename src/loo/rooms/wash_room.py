@@ -7,7 +7,7 @@ class WashRoom(AbstractRoom):
         return "You enter a room that looks like a wash room."
 
     def get_detailed_description(self):
-        return "You see a coin on the floor. " + "<br/>" + "You also see an incredibly nasty sink with an undefinable substance in it. Ew!" + "<br/>" + "You notice a <mark>DoD</mark> on the door." + "</br>" + "On the other side of the room you see two doors, one <mark>door</mark> to the hallway and another one to the loo." + "</br>" + "Oh, and there's a blockchain in the corner. Interesting.."
+        return "You see a coin on the floor. " + "<br/>" + "You also see an incredibly nasty sink with an undefinable substance in it. Ew!" + "<br/>" + "You notice a <mark>DoD</mark> on the door." + "</br>" + "On the other side of the room you see two doors, one door to the <mark>hallway</mark> and another one to the <mark>loo</mark>." + "</br>" + "Oh, and there's a blockchain in the corner. Interesting.."
 
     def handle_command(self, command):
         match command.lower():
