@@ -18,3 +18,8 @@ In order to be able to follow this tutorial you need to have to install the foll
 
 ## Server Setup
 run sudo bash service.sh to make the service persistent as a service.
+
+## Run tests
+0. Activate venv `source venv/bin/activate` and install pytest: `pip install -r requirements.txt` or `pip install pytest==7.3.1`
+1. Before Pushing to main, run `pytest tests/`
+2. Check if everything is green ;)
