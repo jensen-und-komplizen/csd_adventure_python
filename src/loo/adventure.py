@@ -1,5 +1,6 @@
 from src.loo.rooms.loo import Loo
 from src.loo.rooms.wash_room import WashRoom
+import random
 
 
 class Adventure:
@@ -16,6 +17,11 @@ class Adventure:
         self.current_room = self.loo
         self.counter = 0
         self.last_response = ""
+        self.jokes = [
+            "Why do we tell actors to 'break a leg?' - Because every play has a cast ;)",
+            "What to call a dog thats also a magician? - a labracadabrador ;)",
+            "Why is the e function not invited to the party? - because you can't integrate it ;)"
+        ]
 
     def tell(self, command):
         response = ""
@@ -26,7 +32,7 @@ class Adventure:
                 response = self.current_room.get_description()
             case "read a joke":
                 if self.current_room == self.loo:
-                    response = "Why do we tell actors to 'break a leg?' - Because every play has a cast ;)"
+                    response = random.choice(self.jokes)
                 else:
                     response = "There is no joke in this room."
             case "look around":
