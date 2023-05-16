@@ -37,4 +37,4 @@ class Loo(AbstractRoom):
                 return "you wake up on the Loo" + "\n" + super().handle_command(command)
 
     def get_help(self):
-        return super().get_help() + "try to 'look around', 'look at magazines' (better get your gloves), 'look at toilet paper' or just 'use door to washroom' to escape the smell."
+        return super().get_help() + "try to 'look around', 'look at magazines' (better get your gloves), 'look at toilet paper', 'read a joke' or just 'use door to washroom' to escape the smell."
