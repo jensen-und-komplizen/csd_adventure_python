@@ -20,7 +20,7 @@ class Adventure:
         self.counter = 0
         self.last_response = ""
         self.jokes = [
-            "Why do we tell actors to 'break a leg?' - Because every play has a cast ;)",
+            "Why do we tell actors to 'break a leg'? - Because every play has a cast ;)",
             "What to call a dog thats also a magician? - a labracadabrador ;)",
             "Why is the e function not invited to the party? - because you can't integrate it ;)"
         ]
