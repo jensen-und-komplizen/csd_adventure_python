@@ -15,7 +15,7 @@ class Loo(AbstractRoom):
         return "You wake up on the loo. You have no idea where or who you are."
 
     def get_detailed_description(self):
-        return "You see a pretty dirty door, with some nasty jokes on it. There are three pieces of toilet paper on the ground. Next to you are a coin and a few magazines." + "<br/>" + "In your pocket you find a card that says you are a pathetic scrum developer, PSD"
+        return "You see a pretty dirty <mark>door</mark>, with some nasty jokes on it. There are three pieces of <mark>toilet paper</mark> on the ground. Next to you are a coin and a few <mark>magazines</mark>." + "<br/>" + "In your pocket you find a card that says you are a pathetic scrum developer, PSD"
 
     def handle_command(self, command):
         match command.lower():

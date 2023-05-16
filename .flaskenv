@@ -1,1 +1,2 @@
 FLASK_APP=csd_adventure.py
+FLASK_DEBUG=1

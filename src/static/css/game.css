@@ -23,3 +23,9 @@ textarea:focus,
 button:focus {
     outline: none;
 }
+
+mark {
+    background-color: transparent;
+    color: lightgreen;
+    font-weight: bold;
+}

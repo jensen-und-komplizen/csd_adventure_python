@@ -1,5 +1,7 @@
 from src.loo.rooms.loo import Loo
 from src.loo.rooms.wash_room import WashRoom
+from src.loo.rooms.hallway import Hallway
+import random
 
 
 class Adventure:
@@ -13,12 +15,19 @@ class Adventure:
     def __init__(self):
         self.loo = Loo()
         self.washroom = WashRoom()
+        self.hallway = Hallway()
         self.current_room = self.loo
         self.counter = 0
         self.last_response = ""
+        self.jokes = [
+            "Why do we tell actors to 'break a leg?' - Because every play has a cast ;)",
+            "What to call a dog thats also a magician? - a labracadabrador ;)",
+            "Why is the e function not invited to the party? - because you can't integrate it ;)"
+        ]
 
     def tell(self, command):
         response = ""
+        print(command)
         match command.lower():
             case "commit suicide":
                 self.loo.reset_counter()
@@ -26,7 +35,7 @@ class Adventure:
                 response = self.current_room.get_description()
             case "read a joke":
                 if self.current_room == self.loo:
-                    response = "Why do we tell actors to 'break a leg?' - Because every play has a cast ;)"
+                    response = random.choice(self.jokes)
                 else:
                     response = "There is no joke in this room."
             case "look around":
@@ -41,6 +50,12 @@ class Adventure:
                 self.loo.reset_counter()
                 self.current_room = self.loo
                 response = "You are on the loo again. Still smelly."
+            case "use door to hallway":
+                if self.current_room == self.washroom:
+                    self.current_room = self.hallway
+                    response = self.current_room.get_description()
+                else:
+                    response = "There is no door to the hallway"
             case "help":
                 response = self.current_room.get_help()
                 if response is None or len(response) <= 0:

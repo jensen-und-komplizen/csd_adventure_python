@@ -1,0 +1,12 @@
+[Unit]
+Description=Flask App
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/home/csd/csd_adventure_python
+ExecStart=/home/csd/csd_adventure_python/venv/bin/activate flask run --host=0.0.0.0 --port=8080
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
