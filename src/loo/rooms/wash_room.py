@@ -13,8 +13,10 @@ class WashRoom(AbstractRoom):
         match command.lower():
             case "read dod":
                 return "hands washed?" + "</br>" + "paper towels in bin?" + "</br>" + "toilet flushed?"
+            case "grab blockchain":
+                return "Nice, now I have a blockhain in my pocket. Maybe I will become a Crpyto millionaire?!"
             case _:
                 return super().handle_command(command)
-
+            
     def get_help(self):
         return super().get_help() + "try to 'look around', 'read DoD', or 'use door to hallway', or 'use door to loo'. Might help."
