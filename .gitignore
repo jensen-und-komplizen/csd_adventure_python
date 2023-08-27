@@ -5,3 +5,4 @@ build
 __pycache__
 src/csdadventure.egg-info
 .vscode
+*.pyc
