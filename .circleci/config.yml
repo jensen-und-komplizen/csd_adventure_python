@@ -15,8 +15,7 @@ jobs:
 #            - v2-dependencies-
 
       - run:
-          name: Download Dependencies
-          command: pip install -e .
+          command: pip install -e . && pip install pytest
       - run:
           name: Verify (Standard)
           command: pytest --junitxml=testresults.xml
