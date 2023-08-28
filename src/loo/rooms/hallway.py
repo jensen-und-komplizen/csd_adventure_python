@@ -12,3 +12,10 @@ class Hallway(AbstractRoom):
 
     def get_help(self):
         return super().get_help() + "try to 'look around' or 'use door to washroom'. Might help."
+    
+    def handle_command(self, command):
+        match command.lower():
+            case "look at the corner":
+                return "you are seeing a pile of blocks"
+            case _:
+                return "you wake up on the Loo" + "\n" + super().handle_command(command)
