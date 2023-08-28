@@ -12,4 +12,4 @@ class TestLoo(unittest.TestCase):
 
     def test_handle(self):
         loo = Loo()
-        assert loo.handle_command("look at the door") == "It looks like the door to the washroom. Oh yes, lets flush out some bugs"
+        assert loo.handle_command("look at the door") == "It looks like the door to the washroom. Oh yes, lets flush out some bugs!"
