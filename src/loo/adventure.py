@@ -23,7 +23,7 @@ class Adventure:
             "Why do we tell actors to 'break a leg'? - Because every play has a cast ;)",
             "What to call a dog thats also a magician? - a labracadabrador ;)",
             "Did you hear about the actor who fell through the floorboard?...He was just going through a stage. ;)",
-            "Did you hear about the claustrophobic astranuat?..He just needed a little space ;)",
+            "Did you hear about the claustrophobic astronaut?..He just needed a little space ;)",
             "Why is the e function not invited to the party? - because you can't integrate it ;)"
         ]
         self.jokes_temp = copy.deepcopy(self.jokes)
