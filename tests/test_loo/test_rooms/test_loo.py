@@ -9,3 +9,7 @@ class TestLoo(unittest.TestCase):
         loo = Loo()
         assert loo.get_detailed_description() == f"""You see a pretty dirty <mark>door</mark>, with some nasty <mark>jokes</mark> on it. There are three pieces of <mark>toilet paper</mark> on the ground. Next to you are a <mark>coin</mark> and a few <mark>magazines</mark>. \n
         In your pocket you find a card that says you are a pathetic scrum developer, PSD"""
+
+    def test_handle(self):
+        loo = Loo()
+        assert loo.handle_command("look at the door") == "Oh, it looks like the door to the wash room!"

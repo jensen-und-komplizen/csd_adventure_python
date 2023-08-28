@@ -8,8 +8,8 @@ class Loo(AbstractRoom):
 
     def __init__(self):
         self.__toilet_paper_count = 0
-        self.door = Item(name="door", 
-                        message="")
+        self.door = Item(name="door",
+                         message="Oh, it looks like the door to the wash room!")
         self.jokes = Item(name="jokes",
                           message="")
         self.toilet_paper = Item(name="toilet paper", 
@@ -33,9 +33,11 @@ class Loo(AbstractRoom):
         match command.lower():
             case "look at magazines":
                 return self.magazines.message
+            case "look at the door":
+                return self.door.message
             case "look at toilet paper":
                 self.__toilet_paper_count += 1
-                match self.__toilet_paper_count:
+                match   self.__toilet_paper_count:
                     case 1:
                         return "On the first piece is written: \"Scrum Master: Nobody ever comes to my retros... I need to get out of here.\" There are more pieces on the ground."
                     case 2:
