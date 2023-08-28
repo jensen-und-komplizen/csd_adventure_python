@@ -9,7 +9,7 @@ class Loo(AbstractRoom):
     def __init__(self):
         self.__toilet_paper_count = 0
         self.door = Item(name="door",
-                         message="Oh, it looks like the door to the wash room!")
+                         message="It looks like the door to the washroom. Oh yes, lets flush out some bugs!")
         self.jokes = Item(name="jokes",
                           message="")
         self.toilet_paper = Item(name="toilet paper", 
