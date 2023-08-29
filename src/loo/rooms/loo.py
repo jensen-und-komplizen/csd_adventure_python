@@ -45,6 +45,8 @@ class Loo(AbstractRoom):
                     case 3:
                         self.__toilet_paper_count = 0
                         return "On the last piece is written: \"Developers: We have too many meetings.\" I remember. I need to find my Scrum team to help them get out of here."
+            case "pick up toilet paper":
+                return "Toilet paper is covered with diarrhea 💩. I am not going to pick that up >:("
             case "go through door":
                 return
             case "grab coin":
@@ -53,4 +55,4 @@ class Loo(AbstractRoom):
                 return "you wake up on the Loo" + "\n" + super().handle_command(command)
 
     def get_help(self):
-        return super().get_help() + "try to 'look around', 'look at magazines' (better get your gloves), 'grab coin', 'look at toilet paper', 'read a joke' or just 'use door to washroom' to escape the smell."
+        return super().get_help() + "try to 'look around', 'look at magazines' (better get your gloves), 'grab coin', 'look at toilet paper', 'pick up toilet paper', 'read a joke' or just 'use door to washroom' to escape the smell."
