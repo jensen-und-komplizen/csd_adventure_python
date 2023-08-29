@@ -1,5 +1,6 @@
 from src.loo.rooms.room import Room
 from abc import abstractmethod
+from src.loo.inv import Inv
 
 
 class AbstractRoom(Room):
@@ -9,7 +10,7 @@ class AbstractRoom(Room):
         return message
 
     def get_help(self):
-        return "If you want to restart, just try to 'commit suicide' or "
+        return "If you want to restart, just try to 'commit suicide' or 'open your inventory' to open your inventory or "
 
     @abstractmethod
     def get_description(self):
@@ -18,3 +19,9 @@ class AbstractRoom(Room):
     @abstractmethod
     def get_detailed_description(self):
         pass
+
+    def open_inventory(self):
+        inv = Inv.get_all_items(Inv)
+        if(len(inv) == 0):
+            return "your inventory is empty :("
+        return str(inv)

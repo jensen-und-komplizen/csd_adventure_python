@@ -65,6 +65,8 @@ class Adventure:
                 response = self.current_room.get_help()
                 if response is None or len(response) <= 0:
                     response = "There is no help for you!"
+            case "open inventory":
+                response = self.current_room.open_inventory()
             case _:
                 return self.current_room.handle_command(command)
         self.last_response = response

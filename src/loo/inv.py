@@ -7,7 +7,7 @@ class Inv():
     @staticmethod
     def get_all_items(cls):
         return cls.inventory_list
-    
+        
     @staticmethod
     def show_inventory(cls):
         return f"<mark>{str(cls.inventory_list)}</mark>"
