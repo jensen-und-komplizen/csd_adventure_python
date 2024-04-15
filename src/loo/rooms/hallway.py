@@ -18,4 +18,4 @@ class Hallway(AbstractRoom):
             case "look at the corner":
                 return "you are seeing a pile of blocks"
             case _:
-                return "you wake up on the Loo" + "\n" + super().handle_command(command)
+                return "you wake up on the Loo." + "\n" + super().handle_command(command)

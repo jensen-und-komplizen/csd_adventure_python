@@ -52,7 +52,7 @@ class Loo(AbstractRoom):
             case "grab coin":
                 return self.coin.message
             case _:
-                return "you wake up on the Loo" + "\n" + super().handle_command(command)
+                return "you wake up on the Loo." + "\n" + super().handle_command(command)
 
     def get_help(self):
         return super().get_help() + "try to 'look around', 'look at magazines' (better get your gloves), 'grab coin', 'look at toilet paper', 'pick up toilet paper', 'read a joke' or just 'use door to washroom' to escape the smell."
