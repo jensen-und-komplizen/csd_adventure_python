@@ -1,7 +1,8 @@
+import copy
+
+from src.loo.rooms.hallway import Hallway
 from src.loo.rooms.loo import Loo
 from src.loo.rooms.wash_room import WashRoom
-from src.loo.rooms.hallway import Hallway
-import copy
 
 
 class Adventure:
@@ -24,9 +25,10 @@ class Adventure:
             "What to call a dog thats also a magician? - a labracadabrador ;)",
             "Did you hear about the actor who fell through the floorboard?...He was just going through a stage. ;)",
             "Did you hear about the claustrophobic astronaut?..He just needed a little space ;)",
-            "Why is the e function not invited to the party? - because you can't integrate it ;)"
+            "Why is the e function not invited to the party? - because you can't integrate it ;)",
         ]
         self.jokes_temp = copy.deepcopy(self.jokes)
+        self.reread_jokes = False
 
     def tell(self, command):
         response = ""
@@ -39,10 +41,24 @@ class Adventure:
             case "read a joke" | "read joke":
                 if self.current_room == self.loo:
                     if len(self.jokes_temp) < 1:
-                        return "You've read them all ;)"
+                        self.reread_jokes = True
+                        return "You've read them all. Go again? ;)"
                     return self.jokes_temp.pop(0)
                 else:
                     response = "There is no joke in this room."
+            case "yes":
+                if self.reread_jokes:
+                    self.jokes_temp = copy.deepcopy(self.jokes)
+                    self.reread_jokes = False
+                    return self.jokes_temp.pop(0)
+                else:
+                    return self.current_room.handle_command(command)
+            case "no":
+                if self.reread_jokes:
+                    self.reread_jokes = False
+                    return "Ok, suit yourself."
+                else:
+                    return self.current_room.handle_command(command)
             case "look around":
                 response = self.current_room.get_detailed_description()
             case "count":
