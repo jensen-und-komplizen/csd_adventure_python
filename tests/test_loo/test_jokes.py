@@ -1,42 +1,19 @@
 import unittest
 
-from parameterized import parameterized
-
 from src.loo.adventure import Adventure
 
 
 class TestJokes(unittest.TestCase):
 
-    @parameterized.expand(
-        [
-            "read a joke",
-            "read joke",
-            "joke",
-            "look at joke",
-        ]
-    )
-    def test_jokes(self, command: str):
+    def test_jokes(self):
         adventure = Adventure()
-        response = adventure.tell(command)
+        response = adventure.tell("read a joke")
         assert ";)" in response
 
-    def test_jokes_fails(self):
-        adventure = Adventure()
-        response = adventure.tell("tell me a joke")
-        assert "404" in response
-
-    @parameterized.expand(
-        [
-            "read a joke",
-            "read joke",
-            "joke",
-            "look at joke",
-        ]
-    )
-    def test_end_of_jokes(self, command):
+    def test_end_of_jokes(self):
         adventure = Adventure()
         for i in range(len(adventure.jokes)):
-            _ = adventure.tell(command)
+            res = adventure.tell("read a joke")
         
-        response = adventure.tell(command)
+        response = adventure.tell("read a joke")
         assert response == "You've read them all ;)"

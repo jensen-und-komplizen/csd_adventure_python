@@ -10,7 +10,7 @@ class AbstractRoom(Room):
         return message
 
     def get_help(self):
-        return "If you want to restart, just try to 'commit suicide' or 'open inventory' to open your inventory or "
+        return "If you want to restart, just try to 'commit suicide' or 'open your inventory' to open your inventory or "
 
     @abstractmethod
     def get_description(self):

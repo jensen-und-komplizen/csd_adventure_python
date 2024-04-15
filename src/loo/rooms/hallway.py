@@ -14,11 +14,8 @@ class Hallway(AbstractRoom):
         return super().get_help() + "try to 'look around' or 'use door to washroom'. Might help."
     
     def handle_command(self, command):
-        command_lower = command.lower()
-
-        if command_lower == "look at the corner":
-            response = "you are seeing a pile of blocks"
-        else:
-            response = "you wake up on the Loo" + "\n" + super().handle_command(command)
-
-        return response
+        match command.lower():
+            case "look at the corner":
+                return "you are seeing a pile of blocks"
+            case _:
+                return "you wake up on the Loo" + "\n" + super().handle_command(command)

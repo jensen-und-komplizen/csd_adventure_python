@@ -28,17 +28,15 @@ class WashRoom(AbstractRoom):
         Oh, and there's a {self.blockchain} in the corner. Interesting.."""
 
     def handle_command(self, command):
-        command_lower = command.lower()
-
-        if command_lower == "read dod":
-            response = self.dod.message
-        elif command_lower == "grab blockchain":
-            response = self.blockchain.message
-        elif command_lower == "grab coin":
-            response = self.coin.message
-        else:
-            response = super().handle_command(command)
-        return response
+        match command.lower():
+            case "read dod":
+                return self.dod.message
+            case "grab blockchain":
+                return self.blockchain.message
+            case "grab coin":
+                return self.coin.message
+            case _:
+                return super().handle_command(command)
             
     def get_help(self):
         return super().get_help() + "try to 'look around', 'read DoD', or 'use door to hallway', or 'use door to loo', or 'grab coin', or 'grab blockchain'. Might help."
