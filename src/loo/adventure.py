@@ -34,7 +34,7 @@ class Adventure:
         response = ""
         # keep your print statements to yourself.
         match command.lower():
-            case "commit suicide":
+            case "close eyes":
                 self.loo.reset_counter()
                 self.current_room = self.loo
                 response = self.current_room.get_description()
