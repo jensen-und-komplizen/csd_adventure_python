@@ -31,44 +31,43 @@ class Adventure:
     def tell(self, command):
         response = ""
         # keep your print statements to yourself.
-        match command.lower():
-            case "commit suicide":
-                self.loo.reset_counter()
-                self.current_room = self.loo
-                response = self.current_room.get_description()
-            case "read a joke" | "read joke":
-                if self.current_room == self.loo:
-                    if len(self.jokes_temp) < 1:
-                        return "You've read them all ;)"
-                    return self.jokes_temp.pop(0)
+        command_lower = command.lower()
+        if command_lower == "commit suicide":
+            self.loo.reset_counter()
+            self.current_room = self.loo
+            response = self.current_room.get_description()
+        elif command_lower in ["read a joke", "read joke"]:
+            if self.current_room == self.loo:
+                if len(self.jokes_temp) < 1:
+                    response = "You've read them all ;)"
                 else:
-                    response = "There is no joke in this room."
-            case "look around":
-                response = self.current_room.get_detailed_description()
-            case "count":
-                self.counter += 1
-                response = "The counter is at {}".format(self.counter)
-            case "use door to washroom":
-                self.current_room = self.washroom
+                    response = self.jokes_temp.pop(0)
+            else:
+                response = "There is no joke in this room."
+        elif command_lower == "look around":
+            response = self.current_room.get_detailed_description()
+        elif command_lower == "count":
+            self.counter += 1
+            response = f"The counter is at {self.counter}"
+        elif command_lower == "use door to washroom":
+            self.current_room = self.washroom
+            response = self.current_room.get_description()
+        elif command_lower == "use door to loo":
+            self.loo.reset_counter()
+            self.current_room = self.loo
+            response = "You are on the loo again. Still smelly."
+        elif command_lower == "use door to hallway":
+            if self.current_room == self.washroom:
+                self.current_room = self.hallway
                 response = self.current_room.get_description()
-            case "use door to loo":
-                self.loo.reset_counter()
-                self.current_room = self.loo
-                response = "You are on the loo again. Still smelly."
-            case "use door to hallway":
-                if self.current_room == self.washroom:
-                    self.current_room = self.hallway
-                    response = self.current_room.get_description()
-                else:
-                    response = "There is no door to the hallway"
-            case "help":
-                response = self.current_room.get_help()
-                if response is None or len(response) <= 0:
-                    response = "There is no help for you!"
-            case "open inventory":
-                response = self.current_room.open_inventory()
-            case _:
-                return self.current_room.handle_command(command)
+            else:
+                response = "There is no door to the hallway"
+        elif command_lower == "help":
+            response = self.current_room.get_help() or "There is no help for you!"
+        elif command_lower == "open inventory":
+            response = self.current_room.open_inventory()
+        else:
+            response = self.current_room.handle_command(command)
         self.last_response = response
         return response
 

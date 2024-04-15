@@ -30,29 +30,30 @@ class Loo(AbstractRoom):
         In your pocket you find a card that says you are a pathetic scrum developer, PSD"""
 
     def handle_command(self, command):
-        match command.lower():
-            case "look at magazines":
-                return self.magazines.message
-            case "look at the door":
-                return self.door.message
-            case "look at toilet paper":
-                self.__toilet_paper_count += 1
-                match   self.__toilet_paper_count:
-                    case 1:
-                        return "On the first piece is written: \"Scrum Master: Nobody ever comes to my retros... I need to get out of here.\" There are more pieces on the ground."
-                    case 2:
-                        return "On the second piece is written: \"Product Owner: My developers are way too slow.\" There is one more piece on the ground."
-                    case 3:
-                        self.__toilet_paper_count = 0
-                        return "On the last piece is written: \"Developers: We have too many meetings.\" I remember. I need to find my Scrum team to help them get out of here."
-            case "pick up toilet paper":
-                return "Toilet paper is covered with diarrhea 💩. I am not going to pick that up >:("
-            case "go through door":
-                return
-            case "grab coin":
-                return self.coin.message
-            case _:
-                return "you wake up on the Loo" + "\n" + super().handle_command(command)
+        command_lower = command.lower()
+
+        if command_lower == "look at magazines":
+            response = self.magazines.message
+        elif command_lower == "look at the door":
+            response = self.door.message
+        elif command_lower == "look at toilet paper":
+            self.__toilet_paper_count += 1
+            if self.__toilet_paper_count == 1:
+                response = "On the first piece is written: \"Scrum Master: Nobody ever comes to my retros... I need to get out of here.\" There are more pieces on the ground."
+            elif self.__toilet_paper_count == 2:
+                response = "On the second piece is written: \"Product Owner: My developers are way too slow.\" There is one more piece on the ground."
+            elif self.__toilet_paper_count == 3:
+                self.__toilet_paper_count = 0
+                response = "On the last piece is written: \"Developers: We have too many meetings.\" I remember. I need to find my Scrum team to help them get out of here."
+        elif command_lower == "pick up toilet paper":
+            response = "Toilet paper is covered with diarrhea 💩. I am not going to pick that up >:("
+        elif command_lower == "go through door":
+            response = None  # Replace with your desired action for this command
+        elif command_lower == "grab coin":
+            response = self.coin.message
+        else:
+            response = "you wake up on the Loo" + "\n" + super().handle_command(command)
+        return response
 
     def get_help(self):
-        return super().get_help() + "try to 'look around', 'look at magazines' (better get your gloves), 'grab coin', 'look at toilet paper', 'pick up toilet paper', 'read a joke' or just 'use door to washroom' to escape the smell."
+        return super().get_help() + "try to 'look around', 'look at magazines' (better get your gloves), 'grab coin', 'look at toilet paper', 'pick up toilet paper', 'joke' or just 'use door to washroom' to escape the smell."
