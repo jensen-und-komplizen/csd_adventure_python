@@ -36,7 +36,7 @@ class Adventure:
             self.loo.reset_counter()
             self.current_room = self.loo
             response = self.current_room.get_description()
-        elif command_lower in ["read a joke", "read joke"]:
+        elif command_lower in ["read a joke", "read joke", "joke", "look at joke"]:
             if self.current_room == self.loo:
                 if len(self.jokes_temp) < 1:
                     response = "You've read them all ;)"
