@@ -44,6 +44,12 @@ $(document).keydown(function(e) {
 });
 
 function updateCommandArray(command){
+    // in case the command is already in the array, remove it...
+    var index = commandArray.indexOf(command);
+    if (index !== -1) {
+     commandArray.splice(index, 1);
+    }
+    // ...then push the command to the end of the array
     commandArray.push(command);
     lastItemIndex = commandArray.length
     searchIndex = 0
