@@ -4,12 +4,15 @@ from src.loo.items.item import Item
 
 class WashRoom(AbstractRoom):
 
+    _DOD_COMMANDS = ["read dod", "dod"]
+    _BLOCKCHAIN_COMMANDS = ["grab blockchain", "blockchain"]
+    _COIN_COMMANDS = ["grab coin", "coin"]
     def __init__(self):
         self.dod = Item(name="DoD", 
                         message="hands washed?" + "\n" + "paper towels in bin?" + "\n" + "toilet flushed?")
         
         self.blockchain = Item(name="blockchain", 
-                        message="Nice, now I have a blockhain in my pocket. Maybe I will become a Crpyto millionaire?!")
+                        message="Nice, now I have a blockchain in my pocket. Maybe I will become a Crpyto millionaire?!")
         
         self.coin = Item(name="coin", 
                         message="Eww, that wasn't a coin?!")
@@ -28,12 +31,13 @@ class WashRoom(AbstractRoom):
         Oh, and there's a {self.blockchain} in the corner. Interesting.."""
 
     def handle_command(self, command):
-        match command.lower():
-            case "read dod":
+        command_lower = command.lower()
+        match command_lower:
+            case _ if command_lower in self._DOD_COMMANDS:
                 return self.dod.message
-            case "grab blockchain":
+            case _ if command_lower in self._BLOCKCHAIN_COMMANDS:
                 return self.blockchain.message
-            case "grab coin":
+            case _ if command_lower in self._COIN_COMMANDS:
                 return self.coin.message
             case _:
                 return super().handle_command(command)

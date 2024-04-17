@@ -7,6 +7,16 @@ from src.loo.rooms.wash_room import WashRoom
 
 class Adventure:
 
+    _JOKE_COMMANDS = ["read a joke", "read joke", "rj", "joke"]
+    _CLOSE_EYES_COMMANDS = ["close eyes", "ce"]
+    _LOOK_AROUND_COMMANDS = ["look around", "look", "la"]
+    _WASHROOM_COMMANDS = ["use door to washroom", "go to washroom", "washroom"]
+    _LOO_COMMANDS = ["use door to loo", "loo", "go to loo"]
+    _HALLWAY_COMMANDS = ["use door to hallway", "go to hallway", "hallway"]
+    _YES_COMMANDS = ["yes", "y"]
+    _NO_COMMANDS = ["no", "n"]
+    _HELP_COMMANDS = ["help", "h"]
+    _INVENTORY_COMMANDS = ["open inventory", "inventory", "i"]
     counter = None
     current_room = None
     loo = None
@@ -42,13 +52,14 @@ class Adventure:
 
     def tell(self, command):
         response = ""
+        command_lower = command.lower()
         # keep your print statements to yourself.
-        match command.lower():
-            case "close eyes":
+        match command_lower:
+            case _ if command_lower in self._CLOSE_EYES_COMMANDS:
                 self.loo.reset_counter()
                 self.current_room = self.loo
                 response = self.current_room.get_description()
-            case "read a joke" | "read joke":
+            case _ if command_lower in self._JOKE_COMMANDS:
                 if self.current_room == self.loo:
                     if len(self.jokes_temp) < 1:
                         self.reread_jokes = True
@@ -56,42 +67,42 @@ class Adventure:
                     return self.jokes_temp.pop(0)
                 else:
                     response = "There is no joke in this room."
-            case "yes":
+            case _ if command_lower in self._YES_COMMANDS:
                 if self.reread_jokes:
                     self.jokes_temp = copy.deepcopy(self.jokes)
                     self.reread_jokes = False
                     return self.jokes_temp.pop(0)
                 else:
                     return self.current_room.handle_command(command)
-            case "no":
+            case _ if command_lower in self._NO_COMMANDS:
                 if self.reread_jokes:
                     self.reread_jokes = False
                     return "Ok, suit yourself."
                 else:
                     return self.current_room.handle_command(command)
-            case "look around":
+            case _ if command_lower in self._LOOK_AROUND_COMMANDS:
                 response = self.current_room.get_detailed_description()
             case "count":
                 self.counter += 1
                 response = "The counter is at {}".format(self.counter)
-            case "use door to washroom":
+            case _ if command_lower in self._WASHROOM_COMMANDS:
                 self.current_room = self.washroom
                 response = self.current_room.get_description()
-            case "use door to loo":
+            case _ if command_lower in self._LOO_COMMANDS:
                 self.loo.reset_counter()
                 self.current_room = self.loo
                 response = "You are on the loo again. Still smelly."
-            case "use door to hallway":
+            case _ if command_lower in self._HALLWAY_COMMANDS:
                 if self.current_room == self.washroom:
                     self.current_room = self.hallway
                     response = self.current_room.get_description()
                 else:
                     response = "There is no door to the hallway"
-            case "help":
+            case _ if command_lower in self._HELP_COMMANDS:
                 response = self.current_room.get_help()
                 if response is None or len(response) <= 0:
                     response = "There is no help for you!"
-            case "open inventory":
+            case _ if command_lower in self._INVENTORY_COMMANDS:
                 response = self.current_room.open_inventory()
             case _:
                 return self.current_room.handle_command(command)

@@ -15,7 +15,7 @@ class TestWashroom(unittest.TestCase):
 
     def test_blockchain(self):
         washroom = WashRoom()
-        assert washroom.handle_command("grab blockchain") == "Nice, now I have a blockhain in my pocket. Maybe I will become a Crpyto millionaire?!"
+        assert washroom.handle_command("grab blockchain") == "Nice, now I have a blockchain in my pocket. Maybe I will become a Crpyto millionaire?!"
 
     def test_has_items(self):
         washroom = WashRoom()

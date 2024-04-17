@@ -3,6 +3,7 @@ from src.loo.rooms.abstract_room import AbstractRoom
 
 class Hallway(AbstractRoom):
 
+    _CORNER_COMMANDS = ["look at the corner", "corner", "lc", "look corner"]
     def get_description(self):
         return "You enter a hallway that looks dark."
 
@@ -14,8 +15,9 @@ class Hallway(AbstractRoom):
         return super().get_help() + "try to 'look around' or 'use door to washroom'. Might help."
     
     def handle_command(self, command):
-        match command.lower():
-            case "look at the corner":
+        command_lower = command.lower()
+        match command_lower:
+            case _ if command_lower in self._CORNER_COMMANDS:
                 return "you are seeing a pile of blocks"
             case _:
                 return "you wake up on the Loo." + "\n" + super().handle_command(command)

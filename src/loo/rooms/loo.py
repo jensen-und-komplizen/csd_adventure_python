@@ -4,6 +4,14 @@ from src.loo.items.item import Item
 
 class Loo(AbstractRoom):
 
+    _MAGAZINES_COMMANDS = ["look at magazines", "magazines", "look magazines"]
+    _LOOK_DOOR_COMMANDS = ["look at the door", "look door", "view door"]
+    _LOOK_TOILET_PAPER_COMMANDS = ["look at toilet paper", "look toilet paper"]
+    _PICK_TOILET_PAPER_COMMANDS = ["pick up toilet paper", "pick toilet paper"]
+    _DOOR_COMMANDS = ["go through door", "go door"]
+    _COIN_COMMANDS = ["grab coin", "coin"]
+
+
     __toilet_paper_count = None
 
     def __init__(self):
@@ -30,12 +38,13 @@ class Loo(AbstractRoom):
         In your pocket you find a card that says you are a pathetic scrum developer, PSD"""
 
     def handle_command(self, command):
-        match command.lower():
-            case "look at magazines":
+        command_lower = command.lower()
+        match command_lower:
+            case _ if command_lower in self._MAGAZINES_COMMANDS:
                 return self.magazines.message
-            case "look at the door":
+            case _ if command_lower in self._LOOK_DOOR_COMMANDS:
                 return self.door.message
-            case "look at toilet paper":
+            case _ if command_lower in self._LOOK_TOILET_PAPER_COMMANDS:
                 self.__toilet_paper_count += 1
                 match   self.__toilet_paper_count:
                     case 1:
@@ -45,11 +54,11 @@ class Loo(AbstractRoom):
                     case 3:
                         self.__toilet_paper_count = 0
                         return "On the last piece is written: \"Developers: We have too many meetings.\" I remember. I need to find my Scrum team to help them get out of here."
-            case "pick up toilet paper":
+            case _ if command_lower in self._PICK_TOILET_PAPER_COMMANDS:
                 return "Toilet paper is covered with diarrhea 💩. I am not going to pick that up >:("
-            case "go through door":
+            case _ if command_lower in self._DOOR_COMMANDS:
                 return
-            case "grab coin":
+            case _ if command_lower in self._COIN_COMMANDS:
                 return self.coin.message
             case _:
                 return "you wake up on the Loo." + "\n" + super().handle_command(command)
