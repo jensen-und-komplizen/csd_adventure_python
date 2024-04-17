@@ -20,6 +20,9 @@ $( document ).ready(function() {
                 $('#command').val("");
             });
     });
+    $('.standard-command-button').on('click', ({ currentTarget }) => {
+        $('#command').val(currentTarget.innerText).trigger('submit');
+    });
 });
 
 // Listen to keystrokes
