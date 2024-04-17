@@ -17,6 +17,17 @@ input {
 
 }
 
+button {
+    background: #333333;
+    caret-color: forestgreen;
+    caret-shape: underscore;
+    color: forestgreen;
+    font-family: "Space Mono", monospace;
+    font-size: 1em;
+    margin: 0.3em 0;
+
+}
+
 input:focus,
 select:focus,
 textarea:focus,

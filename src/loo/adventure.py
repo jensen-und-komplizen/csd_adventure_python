@@ -28,15 +28,14 @@ class Adventure:
             "Why is the e function not invited to the party? - because you can't integrate it ;)",
         ]
         self.standard_commands = [
-            "close eyes",
+            "help",
             "read a joke",
             "look around",
-            "count",
             "use door to washroom",
             "use door to loo",
             "use door to hallway",
-            "help",
-            "open inventory"
+            "open inventory",
+            "close eyes",
         ]
         self.jokes_temp = copy.deepcopy(self.jokes)
         self.reread_jokes = False
