@@ -27,6 +27,17 @@ class Adventure:
             "Did you hear about the claustrophobic astronaut?..He just needed a little space ;)",
             "Why is the e function not invited to the party? - because you can't integrate it ;)",
         ]
+        self.standard_commands = [
+            "close eyes",
+            "read a joke",
+            "look around",
+            "count",
+            "use door to washroom",
+            "use door to loo",
+            "use door to hallway",
+            "help",
+            "open inventory"
+        ]
         self.jokes_temp = copy.deepcopy(self.jokes)
         self.reread_jokes = False
 

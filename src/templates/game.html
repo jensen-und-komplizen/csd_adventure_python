@@ -13,6 +13,11 @@
             <p>Welcome to our new Adventure!<br>
             {{ adventure.begin() }}
             </p>
+            <div>
+                {% for command in adventure.standard_commands %}
+                    <button type="submit" class="standard-command-button">{{ command }}</button>
+                {% endfor %}
+            </div>
         </div>
         <form id="commandForm" ><input id="command" type="text"/></form>
     </body>
