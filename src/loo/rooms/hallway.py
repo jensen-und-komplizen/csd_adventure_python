@@ -5,7 +5,7 @@ class Hallway(AbstractRoom):
 
     _CORNER_COMMANDS = ["look at the corner", "corner", "lc", "look corner"]
     def get_description(self):
-        return "You enter a hallway that looks dark."
+        return "You enter a dark hallway."
 
     def get_detailed_description(self):
         return "On the other side of the hall you see a door leading to a team room." + "</br>" + \
