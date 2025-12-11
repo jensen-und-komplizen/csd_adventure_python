@@ -1,16 +1,16 @@
 body {
     background: black;
-    color: forestgreen;
+    color: white;
     font-family: "Space Mono", monospace;
     padding: 30px;
 }
 
 input {
     background: #333333;
-    caret-color: forestgreen;
+    caret-color: white;
     caret-shape: underscore;
-    border: none;
-    color: forestgreen;
+    border: 1px solid gray;
+    color: lightblue;
     font-family: "Space Mono", monospace;
     font-size: 1.2em;
     margin: 1em 0;
@@ -19,9 +19,9 @@ input {
 
 button {
     background: #333333;
-    caret-color: forestgreen;
+    caret-color: white;
     caret-shape: underscore;
-    color: forestgreen;
+    color: white;
     font-family: "Space Mono", monospace;
     font-size: 1em;
     margin: 0.3em 0;
@@ -37,6 +37,6 @@ button:focus {
 
 mark {
     background-color: transparent;
-    color: lightgreen;
+    color: orange;
     font-weight: bold;
 }
