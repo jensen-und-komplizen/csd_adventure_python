@@ -7,7 +7,7 @@ class TestHallway(unittest.TestCase):
 
     def test_description(self):
         hallway = Hallway()
-        assert hallway.get_description() == "You enter a hallway that looks dark."
+        assert hallway.get_description() == "You enter a dark hallway"
 
     def test_detailed_description(self):
         hallway = Hallway()
