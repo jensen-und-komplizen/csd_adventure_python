@@ -21,7 +21,18 @@ $( document ).ready(function() {
             });
     });
     $('.standard-command-button').on('click', ({ currentTarget }) => {
-        $('#command').val(currentTarget.innerText).trigger('submit');
+        updateCommandArray(currentTarget.innerText);
+        $.ajax({
+            url: "/command",
+            data: {command: currentTarget.innerText},
+        })
+            .done(function( data ) {
+                if ( console && console.log ) {
+                    console.log( "Sample of data--:", data.slice( 0, 100 ) );
+                }
+                $("#gameInfo").html(data);
+                $('#command').val("");
+            });
     });
 });
 
