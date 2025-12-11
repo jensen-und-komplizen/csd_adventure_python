@@ -31,7 +31,7 @@ class Loo(AbstractRoom):
         self.__toilet_paper_count = 0
 
     def get_description(self):
-        return "You wake up on the loo. You have no idea where or who you are, but at least you have your inventory."
+        return "You wake up on the loo. You have no idea where or who you are. On the bright side, you're not completely empty-handed!"
 
     def get_detailed_description(self):
         return f"""You see a pretty dirty {self.door}, with some nasty {self.jokes} on it. There are three pieces of {self.toilet_paper} on the ground. Next to you are a {self.coin} and a few {self.magazines}. \n
