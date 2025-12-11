@@ -24,3 +24,9 @@ class TestWashroom(unittest.TestCase):
         assert washroom.door is not None
         assert washroom.blockchain is not None
         assert washroom.coin is not None
+
+    # written as a unit test
+    def test_introductory_text(self):
+        washroom = WashRoom()
+        assert "wash room" not in washroom.get_description(), "wash room with space is used"
+        assert "washroom" in washroom.get_description()

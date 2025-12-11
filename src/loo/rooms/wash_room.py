@@ -21,7 +21,7 @@ class WashRoom(AbstractRoom):
                         message="")
                         
     def get_description(self):
-        return "You enter a room that looks like a wash room."
+        return "You enter a room that looks like a washroom."
 
     def get_detailed_description(self):
         return f"""You see a {self.coin} on the floor. \n
