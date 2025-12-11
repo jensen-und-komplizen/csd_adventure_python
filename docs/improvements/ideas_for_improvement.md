@@ -5,6 +5,7 @@
 * Statt "use door to ..." wäre der Befehl "go to ..." besser. "Use ..." sollte verwendbar sein, wenn man einen Gegenstand nutzen kann.
 * Die Farben sollten der aus der Java - Version entsprechen.
 * Die Texte sollte möglichst der Java - Version entsprechen. Es sei denn, wir finden da was besseres.
+* Wir sollen eine Uhr in einem Raum haben, welche die Zeit von <https://csd-timeservice.idiot.games/> abfragt.
 
 ## Loo
 * Ich möchte im Loo keine Aktionen angezeigt bekommen, die ich hier nicht ausführen kann.
