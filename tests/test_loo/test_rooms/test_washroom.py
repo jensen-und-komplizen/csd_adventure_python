@@ -10,7 +10,7 @@ class TestWashroom(unittest.TestCase):
         assert washroom.get_detailed_description() == """You see a <mark>coin</mark> on the floor. \n
         You also see an incredibly nasty sink with an undefinable substance in it. Ew! \n
         You notice a <mark>DoD</mark> on the door. \n
-        On the other side of the room you see two doors, one <mark>door</mark> to the hallway and another one to the loo. \n
+        On the other side of the room you see a <mark>door</mark> to the hallway; and behind you another door to the loo. \n
         Oh, and there's a <mark>blockchain</mark> in the corner. Interesting.."""
 
     def test_blockchain(self):
