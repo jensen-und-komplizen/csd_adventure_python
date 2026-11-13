@@ -21,4 +21,5 @@ run bash start.sh or bash restart.sh to make the web app persistent as a service
 
 ## Run tests
 1. Before Pushing to main, run `python -m unittest discover tests/`
-2. Check if everything is green ;)
+2. Run the BDD tests with `behave` (features are in `features/`)
+3. Check if everything is green ;)
