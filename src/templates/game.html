@@ -14,11 +14,6 @@
             {{ adventure.begin() }}
             </p>
         </div>
-        <div>
-            {% for command in adventure.standard_commands %}
-                <button type="submit" class="standard-command-button">{{ command }}</button>
-            {% endfor %}
-        </div>
         <form id="commandForm" ><input id="command" type="text"/></form>
     </body>
 </html>
